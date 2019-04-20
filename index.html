@@ -6,6 +6,7 @@
   <title>nagasaki45</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <link rel="stylesheet" href="main.css">
 </head>
@@ -43,70 +44,86 @@
             </span>
           </h3>
 
-          <h3 class="title caps">
-            Upcoming shows
-          </h3>
-          <table class="table is-fullwidth">
-            <tbody>
-              <tr>
-                <td><b>1 May 2019</b></td>
-                <td>
-                  <a href="https://www.facebook.com/events/291916704795175/">Sonic Electronics</a><br >
-                  The others
-                </td>
-              </tr>
-              <tr>
-                <td><b>15 Jun 2019</b></td>
-                <td>
-                  As <b>IDMT?</b> w/ <b><a href="https://lwlsn.github.io/">digital selves</a></b><br >
-                  ElectrolightsAV<br >
-                  New River Studios
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div id="gigs">
+            <h3 class="title caps">
+              Upcoming shows
+            </h3>
+            <table class="table is-fullwidth">
+              <tbody>
+                <tr v-for="gig in gigs" v-if="gig.when > yesterday">
+                  <td><b>{{ formatDate(gig.when) }}</b></td>
+                  <td v-html="gig.content"></td>
+                </tr>
+              </tbody>
+            </table>
 
-          <h3 class="title caps">
-            Archive
-          </h3>
-          <table class="table is-fullwidth">
-            <tbody>
-              <tr>
-                <td><b>23 Feb 2019</b></td>
-                <td>
-                  <a href="https://www.meetup.com/London-modular-synthesis-group/events/258296806/">CV Freqs XI</a><br >
-                  IKLECTIK
-                </td>
-              </tr>
-              <tr>
-                <td><b>18 Oct 2018</b></td>
-                <td>
-                  <a href="https://www.residentadvisor.net/events/1169850">ElectrolightsAV XII</a><br >
-                  New River Studios
-                </td>
-              </tr>
-              <tr>
-                <td><b>29 Sep 2018</b></td>
-                <td>
-                  <a href="https://therawandthecooked.intersections.io/cooked.html">The RAW and The COOKED</a><br >
-                  Café 1001
-                </td>
-              </tr>
-              <tr>
-                <td><b>21 Mar 2018</b></td>
-                <td>
-                  <a href="https://www.facebook.com/events/511121392622338/">ElectrolightsAV VI</a><br >
-                  Rye Wax
-                </td>
-	      </tr>
-            </tbody>
-          </table>
+            <h3 class="title caps">
+              Archive
+            </h3>
+            <table class="table is-fullwidth">
+              <tbody>
+                <tr v-for="gig in gigs.slice().reverse()" v-if="gig.when <= yesterday">
+                  <td><b>{{ formatDate(gig.when) }}</b></td>
+                  <td v-html="gig.content"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
         </div><!-- column -->
       </div><!-- columns -->
     </div><!-- container -->
 
   </section>
+
+<script>
+function formatDate(date) {
+  var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug',
+                    'Sep', 'Oct', 'Nov', 'Dec'];
+  return date.getDate() + ' ' +
+         monthNames[date.getMonth() - 1] + ' ' +
+	       date.getFullYear();
+}
+
+function getYesterday() {
+  var today = new Date();
+  today.setDate(today.getDate() - 1);
+  return today;
+}
+
+new Vue({
+  el: '#gigs',
+  data: {
+    yesterday: getYesterday(),
+    gigs: [
+      {
+	      when: new Date(2018, 3, 21),
+	      content: '<a href="https://www.facebook.com/events/511121392622338/">ElectrolightsAV VI</a><br >Rye Wax',
+      },
+      {
+	      when: new Date(2018, 9, 29),
+	      content: '<a href="https://therawandthecooked.intersections.io/cooked.html">The RAW and The COOKED</a><br >Café 1001'
+      },
+      {
+	      when: new Date(2018, 10, 18),
+	      content: '<a href="https://www.residentadvisor.net/events/1169850">ElectrolightsAV XII</a><br >New River Studios'
+      },
+      {
+	      when: new Date(2019, 2, 23),
+	      content: '<a href="https://www.meetup.com/London-modular-synthesis-group/events/258296806/">CV Freqs XI</a><br >IKLECTIK'
+      },
+      {
+	      when: new Date(2019, 5, 1),
+	      content: '<a href="https://www.facebook.com/events/291916704795175/">Sonic Electronics</a><br >The others'
+      },
+      {
+	      when: new Date(2019, 6, 15),
+              content: 'As <b>IDMT?</b> w/ <b><a href="https://lwlsn.github.io/">digital selves</a></b><br >ElectrolightsAV<br >New River Studios'
+      },
+    ]
+  }
+});
+</script>
 
 </body>
 
