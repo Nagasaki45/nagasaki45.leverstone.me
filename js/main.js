@@ -37,7 +37,7 @@ new Vue({
       },
       {
 	      when: new Date(2019, 5, 1),
-	      content: '<a href="https://www.facebook.com/events/291916704795175/">Sonic Electronics</a><br >The others'
+	      content: '<a href="https://www.residentadvisor.net/events/1204412">Sonic Electronics</a><br >The others'
       },
       {
 	      when: new Date(2019, 6, 15),
