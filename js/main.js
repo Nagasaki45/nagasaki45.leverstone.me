@@ -41,7 +41,7 @@ new Vue({
       },
       {
 	      when: new Date(2019, 5, 15),
-              content: 'As <b>IDMT?</b> w/ <b><a href="https://lwlsn.github.io/">digital selves</a></b><br >ElectrolightsAV<br >New River Studios'
+          content: 'As <b>IDMT?</b> w/ <b><a href="https://lwlsn.github.io/">digital selves</a></b><br ><a href="https://www.residentadvisor.net/events/1259799">ElectrolightsAV XIII</a><br >New River Studios'
       },
     ]
   }
