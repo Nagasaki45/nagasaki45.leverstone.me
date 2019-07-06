@@ -44,7 +44,7 @@ new Vue({
           content: 'As <b>IDMT?</b> w/ <b><a href="https://lwlsn.github.io/">digital selves</a></b><br ><a href="https://www.residentadvisor.net/events/1259799">ElectrolightsAV XIII</a><br >New River Studios'
       },
       {
-        when: new Date(2019, 6, 20),
+        when: new Date(2019, 6, 21),
         content: '<a href="http://brightonmodularmeet.co.uk/">Brighton Modular Festival</a><br >Attenborough Centre for the Creative Arts, Brighton'
       },
       {
