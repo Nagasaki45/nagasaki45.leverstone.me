@@ -49,7 +49,7 @@ new Vue({
       },
       {
         when: new Date(2019, 6, 27),
-        content: 'As <b>IDMT?</b> w/ <b><a href="https://lwlsn.github.io/">digital selves</a></b><br >More details soon!'
+        content: 'As <b>IDMT?</b> w/ <b><a href="https://lwlsn.github.io/">digital selves</a></b><br ><a href="https://www.wegottickets.com/event/477845">TOTAL CULT #3</a><br >Brew Club'
       },
     ]
   }
