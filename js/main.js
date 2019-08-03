@@ -16,6 +16,16 @@ function getYesterday() {
 
 new Vue({
   el: '#gigs',
+  computed: {
+    areFutureGigs: function() {
+      for (var i = 0; i < this.gigs.length; i++) {
+        if (this.gigs[i].when > this.yesterday) {
+          return true;
+        }
+      }
+      return false;
+    }
+  },
   data: {
     yesterday: getYesterday(),
     gigs: [

@@ -23,14 +23,14 @@
           <h3 class="title caps">
             IDMT?
           </h3>
-          <div class="video-container">
+          <div class="video-container give-me-space">
             <iframe src="https://www.youtube.com/embed/videoseries?list=PLp02SUiCrWeSyo5_OZiUPJAWyOYjxn59h" frameborder="0" allowfullscreen></iframe>
           </div>
 
           <h3 class="title caps">
             YouTube jams
           </h3>
-          <div class="video-container">
+          <div class="video-container give-me-space">
             <iframe src="https://www.youtube.com/embed/videoseries?list=PLp02SUiCrWeR5T7c9j5iOuT47mQ7HFH1W" frameborder="0" allowfullscreen></iframe>
           </div>
 
@@ -55,7 +55,7 @@
             <h3 class="title caps">
               Upcoming shows
             </h3>
-            <table class="table is-fullwidth">
+            <table v-if="areFutureGigs" class="table is-fullwidth">
               <tbody>
                 <tr v-for="gig in gigs" v-if="gig.when > yesterday">
                   <td><b>{{ formatDate(gig.when) }}</b></td>
@@ -63,6 +63,7 @@
                 </tr>
               </tbody>
             </table>
+            <p v-else class="give-me-space">Nothing at the moment</p>
 
             <h3 class="title caps">
               Archive
