@@ -12,6 +12,7 @@ a {
   padding-bottom: 56.25%; /*16:9*/
   height: 0; 
   overflow: hidden;
+  margin-bottom: 2em;
 }
  
 .video-container iframe,
