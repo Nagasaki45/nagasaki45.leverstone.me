@@ -65,6 +65,10 @@ new Vue({
           when: new Date(2020, 1, 27),
           content: 'As <b>IDMT?</b> w/ <b><a href="https://lwlsn.github.io/digitalselves-web/">digital selves</a></b><br >WIP<br >QMUL'
       },
+      {
+        when: new Date(2020, 11, 5),
+        content: '<a href="https://twitter.com/edenGREY/status/1326055432734068736/photo/1">CV FREQS Live Edition</a><br ><a href="https://www.youtube.com/channel/UCy1bwog2KlnJRSUEGtgj9GQ">youtube</a>'
+      },
     ]
   }
 });
